@@ -8,6 +8,7 @@ type Props = {
   posts: Post[];
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
   const { userId } = context.query;
 
@@ -50,7 +51,7 @@ const UserProfile = ({ profile, posts }: Props) => {
           </div>
         </div>
         {posts.map((post) => (
-          <div className="bg-white shadow-md rounded p-4 mb-4">
+          <div className="bg-white shadow-md rounded p-4 mb-4" key={post.id}>
             <div className="mb-4">
               <div className="flex items-center mb-2">
                 <img
